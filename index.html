@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CV using HTML & CSS</title>
+
+    <!-- =======Google font========= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- =======font awesome======== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- ========style========= -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 1500px;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 1000px;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            box-shadow: 0 35px 55px rgba(0, 0, 0, .1);
+        }
+
+        .container .left-side {
+            position: relative;
+            background: #003147;
+            padding: 40px 27px;
+        }
+
+
+
+        .profileText {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profileText .imgBx {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            padding: 5px;
+            box-shadow: 0 0 0 7px #03a8f49d;
+        }
+
+        .profileText .imgBx img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .profileText h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.5rem;
+        }
+
+        .profileText h2 span {
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+        .contactInfo {
+            /* border: 1px solid red; */
+            padding-top: 40px;
+        }
+
+        .title {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contactInfo ul {
+            position: relative;
+            /* border: 1px solid green; */
+        }
+
+        .contactInfo ul li {
+            /* border: 1px solid blue; */
+            list-style: none;
+            position: relative;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .contactInfo ul li .icon {
+            /* border: 1px solid red; */
+            color: #03a9f4;
+            display: inline-block;
+            width: 30px;
+            font-size: 18px;
+        }
+
+        .contactInfo ul li a {
+            text-decoration: none;
+        }
+
+        .contactInfo ul li a:hover .text {
+            color: #03a9f4;
+        }
+
+        .contactInfo ul li span {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .contactInfo.education li {
+            margin-bottom: 15px;
+        }
+
+        .contactInfo.education h5 {
+            color: #03a9f4;
+            font-weight: 500;
+        }
+
+        .contactInfo.education h4:nth-child(2) {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .contactInfo.education h4 {
+            color: #fff;
+            font-weight: 300;
+        }
+
+
+        .contactInfo.language .percent {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background: #081921;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .contactInfo.language .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #03a9f4;
+        }
+
+        .container .right-side {
+            position: relative;
+            background: #fff;
+            padding: 40px;
+        }
+
+        .about {
+            margin-bottom: 70px;
+        }
+
+        .about:last-child {
+            margin-bottom: 0;
+        }
+
+        .title2 {
+            color: #003147;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            color: #333;
+        }
+
+        .about .box {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 0;
+        }
+
+        .about .box .year-company {
+            min-width: 150px;
+        }
+
+        .about .box .year-company h5 {
+            text-transform: uppercase;
+            color: #848c90;
+        }
+
+
+
+        .about .box .year-company a:hover,
+        .about .box .year-company h5:hover {
+            color: #03a9f4;
+        }
+
+        .about .box .text h4 {
+            text-transform: uppercase;
+            color: #2a7da2;
+        }
+
+        .skills .box {
+            position: relative;
+            /* border: 1px solid red; */
+            width: 100%;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skills .box h4 {
+            text-transform: uppercase;
+            color: #848c99;
+            font-weight: 500;
+        }
+
+        .skills .box .percent {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+        }
+
+        .skills .box .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #03a9f4;
+        }
+
+        .interest ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .interest ul li {
+            list-style-type: none;
+            color: #333;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+
+        .interest ul li .fa,
+        .interest ul li img {
+            color: #03a9f4;
+            font-size: 18px;
+            width: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .container {
+                margin: 10px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                height: 1000px;
+            }
+
+            .about .box {
+                flex-direction: column-reverse;
+                gap: 10px;
+            }
+
+            .skills .box {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .interest ul {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* .info-title {
+            position: absolute;
+            top: 20px;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- <h2 class="info-title">Resume maded by html and css</h2> -->
+
+    <div class="container">
+        <div class="left-side">
+            <div class="profileText">
+                <div class="imgBx">
+                    <img src="./20210124_222806.jpg" alt="">
+                </div>
+                <h2>Sagar Thakur<br><span>Web Developer</span> <span
+                        style="display: block; font-size: 16px;">Fresher</span></h2>
+            </div>
+
+            <div class="contactInfo">
+                <h3 class="title">Contact Info</h3>
+                <ul>
+                    <li>
+                        <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <a href="tel:6265965711">
+                            <span class="text">+91 6265965711</span>
+                        </a>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        <a href="mailto:sagarthakur6947@gmail.com">
+                            <span class="text">sagarthakur6947@gmail.com</span>
+                        </a>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
+                        <a href="https://github.com/Sagar6947" target="_blank">
+                            <span class="text">Github/Sagar6947</span>
+                        </a>
+                        <!-- </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-linkedin-square" aria-hidden="true"></i></span>
+                        <span class="text">www.linkedin.com/me</span>
+                    </li> -->
+                    <li>
+                        <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <a href="https://goo.gl/maps/PJSGmZqrSPnuRQeV8" target="_blank">
+
+                            <span class="text">92, Sudama Nagar, T. T. Nagar, Bhopal,
+                                Madhya
+                                Pradesh
+                                462003</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contactInfo education">
+                <h3 class="title">Education</h3>
+                <ul>
+                    <li>
+                        <h5>2019 - present</h5>
+                        <h4>Bachelor in Commerce</h4>
+                        <h4>Barkatullah University</h4>
+                    </li>
+                    <li>
+                        <h5>2019</h5>
+                        <h4>Certified in Software Management</h4>
+                        <h4>IANT</h4>
+                    </li>
+                    <li>
+                        <h5>2018</h5>
+                        <h4>Higher Secondary School</h4>
+                        <h4>M.P. Board</h4>
+                    </li>
+                    <li>
+                        <h5>2016</h5>
+                        <h4>High School</h4>
+                        <h4>M.P. Board</h4>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contactInfo language">
+                <h3 class="title">Language</h3>
+                <ul>
+                    <li>
+                        <span class="text">Hindi</span>
+                        <span class="percent">
+                            <div style="width: 95%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">English</span>
+                        <span class="percent">
+                            <div style="width: 50%;"></div>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="right-side">
+            <div class="about">
+                <h2 class="title2">Profile</h2>
+                <p>passionate for web development and managing projects, i who would like to be a part of a company
+                    where
+                    i could use and enhance my coding skills and creativity for growth of both the company and
+                    myself. </p>
+            </div>
+            <div class="about">
+                <h2 class="title2">projects</h2>
+                <div class="box">
+                    <div class="year-company">
+                        <a href="https://easybank-sagar.netlify.app/" target="_blank">
+                            <h5>let's check</h5>
+                        </a>
+
+                    </div>
+                    <div class="text">
+                        <h4>Easy Bank</h4>
+                        <p>Frontend Mentor provides designs so that i can practice to improving my front-end skills.
+                            They provides designs (both mobile and desktop) in JEPG format, assets and style guide to
+                            get started. </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="year-company">
+                        <a href="https://repair-sagar.netlify.app/" target="_blank">
+                            <h5>let's check</h5>
+                        </a>
+                    </div>
+                    <div class="text">
+                        <h4>repair</h4>
+                        <p>Hardware repair website where i learn lots of different layout techniques like Flexbox or
+                            Gird. </p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="year-company">
+                        <a href="https://realestate-sagar.netlify.app/" target="_blank">
+                            <h5>let's check</h5>
+                        </a>
+                    </div>
+                    <div class="text">
+                        <h4>real estate</h4>
+                        <p>Impressive responsive realestate web design by using HTML & CSS. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about skills">
+                <h2 class="title2">professional skills</h2>
+                <div class="box">
+                    <h4>html</h4>
+                    <div class="percent">
+                        <div style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4>Css</h4>
+                    <div class="percent">
+                        <div style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4>Javascript</h4>
+                    <div class="percent">
+                        <div style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4>Responsive Web</h4>
+                    <div class="percent">
+                        <div style="width: 65%;"></div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4>Git & Github</h4>
+                    <div class="percent">
+                        <div style="width: 75%;"></div>
+                    </div>
+                </div>
+                <!-- <div class="box">
+                    <h4>Adobe XD</h4>
+                    <div class="percent">
+                        <div style="width: 88%;"></div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="about interest">
+                <h2 class="title2">Interest</h2>
+                <ul>
+                    <li><i class="fa fa-gamepad" aria-hidden="true"></i> &nbsp; Gaming</li>
+                    <li><img src="walikng-removebg-preview.png" alt="" style="width: 17px;"> Walking</li>
+                    <li><i class="fa fa-music" aria-hidden="true"></i>
+                        Music</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
